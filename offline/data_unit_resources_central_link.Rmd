@@ -1,0 +1,12 @@
+---
+title: "IMPACT Data Unit Resources"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+For the most up to date version of resources related to the data unit, please see [the IMPACT data unit RPubs page](https://rpubs.com/impact_dataunit/dataunitresources).
+

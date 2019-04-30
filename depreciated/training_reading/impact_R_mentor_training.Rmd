@@ -1,0 +1,29 @@
+---
+title: "IMPACT R Mentor Training"
+author: "Martin Barner"
+date: "31 January 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Prerequisite Reading
+
+## Basics of functional programming 
+1. [writing custom functions](http://adv-r.had.co.nz/Functions.html) 
+2. [pure functions](https://arnhem.luminis.eu/pure-bliss-with-pure-functions-in-java/) 
+3. [cohesion and coupling](https://enterprisecraftsmanship.com/2015/09/02/cohesion-coupling-difference/) 
+4. important for tidyverse / dplyr users: [tidyeval & creating functions around NSE](http://adv-r.had.co.nz/Computing-on-the-language.html) 
+
+
+## Test Driven Development 
+### Reading
+1. why [Test driven development](https://www.agilealliance.org/glossary/tdd/#q=~(infinite~false~filters~(postType~(~'page~'post~'aa_book~'aa_event_session~'aa_experience_report~'aa_glossary~'aa_research_paper~'aa_video)~tags~(~'tdd))~searchTerm~'~sort~false~sortDirection~'asc~page~1)) 
+
+### Exercise
+2. [test driven development in R with testthat](https://github.com/pparacch/tdd_r_with_testthat)
+
+
+

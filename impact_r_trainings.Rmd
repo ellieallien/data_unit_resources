@@ -1,0 +1,265 @@
+---
+title: 'IMPACT R training: Builders'
+author: "Martin Barner"
+date: "30 January 2019"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true  
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Overview
+
+
+# Trainings
+
+## R-USER
+
+### Introduction
+
+### Preliminary quantitative data analysis guidelines (3 hours)
+
+Read carefully these [Guidelines](https://docs.google.com/document/d/1979hEu6N9d_nIHwkq3AhvLDww1-_eXys808q81WewZ0/edit) - paying specific attention to the minimum standards and the way each data analysis case is set up. 
+
+
+<!-- <span style="color:pink">**Exercise**</span> -->
+<!-- From the last quantitative assessment you worked on, what number of the minimum standards were fulfilled? Please send RCID and filled out minimum standards list to data unit HQ. -->
+
+  
+### Setup (3 hours) 
+#### R and Rstudio installation 
+- [Download R](https://cran.r-project.org/bin/windows/base/)
+- [Download R Studio](https://www.rstudio.com/products/rstudio/download/) [download the free - open source licence]
+
+
+<span style="color:pink">**Exercise**</span>  
+Download and install both R _and_ RStudio to your work laptop. (these are two different installations.)
+
+### Getting Started with R and Rstudio
+
+<!-- ### R Overview -->
+<!-- - [Introduction to R and how it works](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf): Chapter 2  -->
+
+### Programming basics (in R) 
+
+#### Variables and data structures
+Content:
+1. RStudio interface
+1. Assigning variables 
+1. Data types: numerics, strings, factors 
+1. Data structures: scalar, vector, matrix, data frame, list
+1. Subsetting
+    <!-- - [Paradis - Beginner R ](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf): Chapter 3.1 -->
+
+- [Intro to R in RStudio](https://www.sitepoint.com/introduction-r-rstudio/)
+- [Datacamp course (4hrs)](https://www.datacamp.com/courses/free-introduction-to-r)
+- [More on Subsetting Data](https://www.statmethods.net/management/subset.html) 
+
+<span style="color:pink">**Exercise**</span>  
+Completing the datacamp course **was** your exercise. Yay !
+
+#### Handling data 
+1. importing and exporting data: [Intro to R environment: Chapter 3.3.](http://ncss-tech.github.io/stats_for_soil_survey/chapters/1_introduction/1_introduction.html#33_data_management_in_rstudio) 
+2. inspecting data: [Cheatsheet](https://www.statmethods.net/input/contents.html) 
+
+<span style="color:pink">**Exercise**</span>  
+Follow the expercise in 1.)
+Use R to load your own dataset, check the dimensions of the table, and save as a csv file under a different name. 
+
+<!-- ## 4. Getting ready for tidyverse (2 hours) -->
+<!-- ### dplyr, magrittR and the “pipe” operator   -->
+<!-- - [Training on the pipe operator](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)  -->
+
+<!-- <span style="color:pink">**Exercise**</span> -->
+<!-- Completing the training course **was** your exercise. Yay ! If you would like to know more about the tidyverse, you can do so [here](https://www.tidyverse.org/) -->
+
+### 5. R packages (1/2 day)
+
+dplyr and magrittR are two commonly used _R packages_. All of R has packages as building blocks: simple tools that solve one particular problem. Later in this intro you will learn about the packages developed within IMPACT.
+
+#### Installing and loading packages 
+- [Installing and loading packages](http://ncss-tech.github.io/stats_for_soil_survey/chapters/1_introduction/1_introduction.html#35_packages): Chapter 3.5 
+
+- [Reading R help pages and package documentation](https://www.r-project.org/help.html)
+
+<span style="color:pink">**Exercise**</span>  
+<!-- Download the three R packages _hypegrammaR_, _koboquest_ and _validatoR_ from https://github.com/mabafaba   -->
+Install the "ggplot2" package. Inspect it's vignettes. Look at the help page for ggplot2's "qplot" function.
+  
+### 6. Troubleshooting (1/2 day)
+1. How to search for a solution 
+    - Be specific in your vocabulary: include the data type, structure and operation   
+    - Paste the error message into google
+[Stack Overflow - using r-faq](https://csgillespie.github.io/efficientR/learning.html#online-resources)
+1. How to ask for help 
+    - [Isolating issues - debugging](https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio) 
+    - [Producing a Minimal working example](https://stackoverflow.com/help/mcve)
+
+
+<!-- ## 7. Getting started with IMPACT R tools (1/2 day) -->
+
+<!-- <span style="color:pink">**Exercise**</span>  -->
+<!-- Use the downloaded R package _Koboquest: Wrangling with Kobo data_ on an assessment of your choice. -->
+<!-- - Find data types for a variable -->
+<!-- - Get choice and question labels for a variable -->
+<!-- - Check if a question is skipped for the 13^th^ record -->
+
+  
+### 8. Prerequisite test 
+The prerequesite test will rely on the guidelines, as well as chapters 2, 3 and 5. To ensure a smooth training, passing it is required to participate. 
+  
+#### Supporting materials: 
+
+[https://cran.r-project.org/doc/manuals/R-intro.pdf](https://cran.r-project.org/doc/manuals/R-intro.pdf)
+
+
+
+
+
+
+
+
+
+
+## R-MENTOR
+
+*the R-MENTER part is currenlty under development*
+
+## Prerequisite Reading
+
+### Basics of functional programming 
+1. [writing custom functions](http://adv-r.had.co.nz/Functions.html) 
+2. [pure functions](https://arnhem.luminis.eu/pure-bliss-with-pure-functions-in-java/) 
+3. [cohesion and coupling](https://enterprisecraftsmanship.com/2015/09/02/cohesion-coupling-difference/) 
+4. important for tidyverse / dplyr users: [tidyeval & creating functions around NSE](http://adv-r.had.co.nz/Computing-on-the-language.html) 
+
+
+### Test Driven Development 
+#### Reading
+1. why [Test driven development](https://www.agilealliance.org/glossary/tdd/#q=~(infinite~false~filters~(postType~(~'page~'post~'aa_book~'aa_event_session~'aa_experience_report~'aa_glossary~'aa_research_paper~'aa_video)~tags~(~'tdd))~searchTerm~'~sort~false~sortDirection~'asc~page~1)) 
+
+#### Exercise
+2. [test driven development in R with testthat](https://github.com/pparacch/tdd_r_with_testthat)
+
+
+
+
+
+## R-BUILDER 
+    
+
+    
+
+### Curriculum
+
+  
+  
+
+### Version Control with git(hub) - ½ day 
+#### Reading 
+1. [install this](https://desktop.github.com/) (3min) and set up your account 
+2. [why git?](http://nvie.com/posts/a-successful-git-branching-model/#feature-branches) (don't worry about understanding the technical/code bits!) (20mins) 
+3. [what is a VCS?](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (10min) 
+4. [most basic git commands](https://rogerdudler.github.io/git-guide/) (5min) 
+5. [interactive intro to git](https://try.github.io/levels/1/challenges/1) (15min) 
+6. [Using Git(hub) with RStudio and packages](http://r-pkgs.had.co.nz/git.html) 
+
+#### Exercise 
+1. Set up a github account, install Git and Git(hub) and link it with RStudio 
+1. Set up a public repository with a dummy file. Make at least 3 commits and 1 merge using at least 2 different branches. 
+1. Send link to data unit for review 
+
+### Software design (1 ½  days) 
+#### Reading 
+1. Basics of functional programming 
+    1. [writing custom functions](http://adv-r.had.co.nz/Functions.html) 
+    2. [pure functions](https://arnhem.luminis.eu/pure-bliss-with-pure-functions-in-java/) 
+    3. [cohesion and coupling](https://enterprisecraftsmanship.com/2015/09/02/cohesion-coupling-difference/) 
+    4. important for tidyverse / dplyr users: [tidyeval & creating functions around NSE](http://adv-r.haputing-on-the-language.html) 
+d.co.nz/Com
+1. Test Driven Development 
+    1. why [Test driven development](https://www.agilealliance.org/glossary/tdd/#q=~(infinite~false~filters~(postType~(~'page~'post~'aa_book~'aa_event_session~'aa_experience_report~'aa_glossary~'aa_research_paper~'aa_video)~tags~(~'tdd))~searchTerm~'~sort~false~sortDirection~'asc~page~1)) 
+    2. [test driven development in R with testthat](https://github.com/pparacch/tdd_r_with_testthat) 
+
+#### Exercise 
+1. Write unit tests for a single (not yet existing) function (e.g. SMEB calculation) 
+2. Write a pure function that passes the tests 
+3. Push to github and send link to Data Unit for code review  & Q&A 
+
+### Writing Packages in R (2 days) 
+
+(this generally follows Hadley Wickham’s [book on creating R packages](http://r-pkgs.had.co.nz/))
+
+#### Getting started 
+##### Reading 
+1. [Introduction](http://r-pkgs.had.co.nz/intro.html) 
+2. [Package structure](http://r-pkgs.had.co.nz/package.html) 
+
+##### Exercise 
+1. Set up an R package project and push to github. Send link to data unit for review 
+
+#### Package components 
+##### Reading 
+1. [Code (R/)](http://r-pkgs.had.co.nz/r.html) 
+2. [Package metadata (DESCRIPTION)](http://r-pkgs.had.co.nz/description.html) 
+3. [Testing](http://r-pkgs.had.co.nz/tests.html) 
+
+##### Exercise 
+1. Adjust your pure function according to the reading 
+2. Add the function to the package project you created earlier according to the reading 
+3. Add your unit tests to the package according to the reading 
+4. push to github for data unit review 
+
+#### Documentation 
+##### Reading 
+1. [Object documentation (man/)](http://r-pkgs.had.co.nz/man.html) 
+2. [Vignettes (vignettes/)](http://r-pkgs.had.co.nz/vignettes.html) 
+3. [Namespaces (NAMESPACE)](http://r-pkgs.had.co.nz/namespace.html) 
+
+##### Exercise 
+1. Add roxygen comments to all package functions 
+    1. It should have at least: 
+        1. Consise title and description 
+        2. `@param` for all function parameters. Be precise on the format of the input (what data structure and data type does the function expect). Clarify the default behaviour. 
+        3. `@details` concise description of the methodology; default behaviour; any unexpected behaviour; limitations/things to watch out for 
+        4. `@value` what does the function return, and in what format? 
+        5. `@examples` at least one self contained example 
+        6. `@export` for all user facing functions 
+
+2. Add at least one Vignette with a basic example on a fake data frame. It should contain at least 
+    1. Summary 
+        1. what problem does the package solve 
+        2. When should your package be used? When should it not be used / limitations? 
+
+    2. Quickstart 
+        1. the minimum the user needs to know to use the package to solve the problem. Give a working example 
+
+    3. Details 
+        1. Additional features: Expand from the quickstart example all other functionality that wasn’t covered in the quickstart guide 
+        2. Methodology: Any details about the package behaviour that isn’t obvious 
+
+    4. Push everything to github for the data unit to test. The package should now be fully functional and transparently documented.  
+
+
+  
+
+### Certification Requirements
+
+1. A simple R package 
+    1. Write a package for a single, simple task to solve a task that you or someone in your team does on a regular basis. It is ok if the package contains only a single user facing function. 
+
+2. Scope Requirements 
+    1. The package is up on github and works out of the box 
+    2. All functions are well documented with roxygen2 function manuals (I can use ?packagename::functionname and get all the information I need to use your packages functions. 
+    3. A clear manual is available via BrowseVignettes(packagename) 
+    4. All functions are pure (exceptions are functions that are explicitely meant to read or write files; functions are still pure if they use other functions, as long as those functions are pure) 
+    5. The package functions work with any data (they are independent from variable names etc.) 
+    6. The code is readable and easy to understand 
+    7. Best practices outlined in the curriculum are followed

@@ -1,0 +1,93 @@
+---
+title: "contributing Impact Packages"
+author: "Martin Barner"
+date: "30 January 2019"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Overview
+
+# Required Skills
+In order to contribute, you need to know the content of the [Impact builder certificate training](https://rpubs.com/impact_dataunit/462823). In summary, that is:
+
+- effectively using git and github for version control, collaboration and sharing r packages
+- basics of functional programming (understanding pure functions, cohesion & decoupling etc.)
+- test driven development best practices and implementation in R (packages)
+- Hadley Wickham’s [book on creating R packages](http://r-pkgs.had.co.nz/)
+- If you're using tidyverse stuff, [tidyeval & creating functions around NSE](http://adv-r.haputing-on-the-language.html)
+
+# Coordination
+Before starting a tool, coordinate with the GVA Data Unit.
+
+- Do not replicate functionality already present in other IMPACt tools
+- Do not replicate existing, well established packages
+- Rely on existing code where possible
+- Stick to conventions already used in other IMPACT R packages
+
+# Standards
+
+## Scope standards
+Most tools developed across the humanitarian system (and within IMPACT) failed in the past because their functionality was too complex, not reliable enough or not well enough documented.
+
+Therefore packages must have a single, clearly defined functionality.
+
+- No feature bloat: Create first the _absolute minimum functionality necessary for your package to be useful_, and make sure that functionality complies with all standards. Do not overanticipate future features (such as adding function parameters that are not yet in use). Once the minimum functionality is complete with everything, you can expand.
+
+
+Packages can be as simple as a single function doing a single thing (an example of this would be the `mergekobodata` package); complex tasks should be split into independent packages. These may then be combined into higher order packages. They would then have varying levels of complexity/specialisation:
+
+- unspecific: e.g.: calculate median or modes depending on the data type
+- data type specific: e.g. triangulating structured KI information
+- project type specific: e.g. market monitoring analysis
+- project specific: e.g. SYR market monitoring
+
+What is important is that _specific packages should not contain unspecific code._ That means that in the example above, a `SYR market monitoring` package should rely on the `market monitoring analysis` package for _all code that is not specific to SYR alone_. In turn, the `market monitoring analysis` package should rely on `triangulating KI data` for anything not totally specific to market monitoring (and so on).
+
+## Quality Standards
+
+### Input
+- No package should require input data to have specific columns/variable names .
+
+### Dependencies
+- The package should not have more external dependencies than absolutely necessary.
+- Do not depend on the `tidyverse` package as a whole (instead, depend on the individual tidyverse packages that you need, e.g. `dplyr`, `purrr` etc.)
+
+### Software Design
+- All package functions must be pure functions. Exceptions are reading/writing files and creating plots.
+- Package development must be test driven; the package must contain substantial unit tests for all functions.
+### Readability
+- All variable names must be meaningful and self explanatory
+- All code must be either self explanatory or well commented
+### External Documentation
+- All package functions must be thoroughly documented with roxygen2.
+### Data
+- The package should _not_ contain any data. Exceptions are test data for testing and examples. That data should be as small as possible (<1Mb) and provided in raw format in the ./test/ directory. The data must be already validated and in the public domain (on the resource center).
+### Interface
+- User facing functions and function parameters must have meaningful, self explanatory,  _consistent_ and easy-to-guess names.
+- Custom error messages: The package should only throw meaningful custom error messages. Unexpected inputs must be anticipated and the exceptions caught with a meaningful error message.
+- Quiet: Functions should not print to the console (except errors and (rare) warnings or messages)
+- Reasonable default values for parameters: The default values for all functions should be well thought through.
+- No default values where default values are bad: Choices that the user must consider should not be given by default values.
+
+
+## Accessibility Standards
+- The package must contain Vignettes with
+  - a quick start guide: the minimum information someone needs to use the package in the simplest way
+  - a least one complete working example
+- `?packagename` must give an overview over the complete package functionality.
+- The package must be "strict": It should not allow the user to do something 'wrong'.
+- No unexpected outputs: The package functions should not give unexpected output from unexpected inputs. If the input does not comply with the functionality, a meaningful error should be thrown.
+
+## Accountability and Maintenance
+
+If a package is included in the IMPACT package repository, the creator becomes the package maintainer by default. 
+
+

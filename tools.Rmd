@@ -1,0 +1,399 @@
+---
+title: "Getting started with IMPACT R tools"
+author: "Martin Barner"
+date: "30 January 2019"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true  
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+
+library(knitr)
+library(dplyr)
+
+existing_tools<-list(
+ list(
+    name="Quicksheets",
+    software = "excel",
+    description="An Excel template with shortcuts for quicker and better data cleaning.",
+    authors=c("Oliver Moeller"),
+    status="validated",
+    repository="https://github.com/rolloverlime/quicksheets",
+    maintainer="oliver.moller@reach-initiative.org"
+
+ ), 
+list(
+    name="cleaninginspectoR",
+    software = "R",
+    description="Simple data cleaning checks",
+    authors=c("Martin Barner","Eliora Henzler"),
+    status="under development",
+    repository="ellieallien/cleaninginspectoR",
+    maintainer="martin.barner@impact-initiatives.org"
+
+ ),
+
+
+list(
+    name="hypegrammaR",
+    software = "R",
+    description="An implementation of the quantitative analysis guidelines",
+    authors=c("Martin Barner","Eliora Henzler"),
+    status="under development",
+    repository="mabafaba/hypegrammaR",
+    maintainer="martin.barner@impact-initiatives.org"
+
+  ),
+
+
+list(
+    name="koboquest",
+    software = "R",
+    description="Using the kobo tool to identify data types, evaluate skiplogic and apply labels",
+        authors=c("Martin Barner","Eliora Henzler")
+    ,
+
+    status="validated",
+    repository="mabafaba/hypegrammaR",
+    maintainer="martin.barner@impact-initiatives.org"
+
+)
+
+
+,
+
+list(
+    name="mergekobodata",
+    software = "R",
+    description="Merging data from different variations of a tool",
+        authors=c("Martin Barner","Eliora Henzler"),
+
+    status="validated",
+    repository="mabafaba/mergekobodata",
+        maintainer="martin.barner@impact-initiatives.org"
+    ),
+
+list(
+  name="surveyweights",
+    software = "R",
+  description="calculate survey weights from sampling frames; combine stratum and cluster weights",
+      authors=c("Martin Barner","Eliora Henzler"),
+
+  status="beta",
+  repository="mabafaba/surveyweights",
+    maintainer="martin.barner@impact-initiatives.org"
+
+),
+
+list(
+  name="kobostandards",
+    software = "R",
+  description="check if kobo tool, data, sampling frame and analysis plan comply with format standards and match with each other",
+      authors=c("Martin Barner"),
+
+  status="beta",
+  repository="mabafaba/kobostandards",
+    maintainer="martin.barner@impact-initiatives.org"
+
+),
+
+list(
+  name="xlsformfill",
+    software = "R",
+  description="Generate fake data from kobo forms so you can test analysis scripts before any real data is collected",
+      authors=c("Martin Barner"),
+
+  status="beta",
+  repository="mabafaba/xlsformfill",
+    maintainer="martin.barner@impact-initiatives.org"
+
+)
+)
+
+
+
+```
+
+To minise the overall workload and to maximise quality, it is important to reduce duplication. Ideally, for each specific thing that needs to be done on data, only a single piece of script should exist that everyone relies on. For this goal there is the IMPACT (R) tool sharing ecosystem outlined below.
+It is split in two sections: First, how tools can be _accessed_, and second, how anyone can _contribute_ to these tools.
+The first section includes a description of the _required skills_ you need to use any of the tools, a list of _available tools_, and a step by step guide on _how to get started with an Impact R package_. And how to _get help_ when you get stuck.
+
+# Using IMPACT R tools
+
+To use a tool, you need to:
+
+1. Make sure you have the [required skills](#required-skills). If you don't but would like to learn, do not hesitate to request the necessary training from your CFP/HQ.
+1. Pick the tool you need from the list of [available tools](#available-tools)
+1. [Install](#installation) the package 
+1. [Load it](#loading)
+1. Read the [essential documentation / Vignettes](#accessing-the-documentation) provided by the developer.
+
+If you still get stuck, there are multiple ways to [get help](#getting-help)
+
+## Required Skills
+All IMPACT R tools are built to be usable by anyone who completed the [certified 'user' training](https://rpubs.com/impact_dataunit/impact_usertraining). Generally you should have R and RStudio installed, be familiar with the RStudio interface, understand variables, basic data types, subsetting, installing/loading packages as well as reading/writing data to/from files. 
+
+
+
+## Available Tools
+```{r,echo=F,results='asis'}
+av_t<-lapply(existing_tools,function(x){x$authors<-paste(x$authors,collapse=", ");x})
+av_t<-do.call(rbind,av_t)
+
+colnames(av_t)[colnames(av_t)=="description"]<- "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description"
+knitr::kable(av_t)
+```
+
+## Getting Started with an IMPACT R Package
+
+### install essential dependencies first
+
+first, install devtools (you need to do this only once on your system):
+
+```{r,eval = F}
+install.packages("devtools")
+install.packages("assertthat")
+install.packages("crayon")
+install.packages("data.table")
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("ggthemes")
+install.packages("htmltools")
+install.packages("knitr")
+install.packages("magrittr")
+install.packages("purrr")
+install.packages("questionr")
+install.packages("reshape")
+install.packages("reshape2")
+install.packages("rmarkdown")
+install.packages("stringi")
+install.packages("stringr")
+install.packages("survey")
+install.packages("testthat")
+install.packages("tibble")
+install.packages("tidyr")
+install.packages("utils")
+
+```
+
+
+### Installation
+any of the tools in the "Available Tools" list above can be installed by running the following command inside the R console:
+```{r, eval=F}
+devtools::install_github("REPOSITORY_NAME",build_opts = c())
+```
+where `REPOSITORY_NAME` should be replaced by the repository column in the "Available Tools" table above; for example to install the `cleaninginspectoR` package:
+
+
+```{r,eval=F}
+devtools::install_github("ellieallien/cleaninginspectoR",build_opts = c())
+```
+
+>  At this stage, look at the console panel of RStudio. You can ignore most of it, but if any issues come up, you will be notified here. Issues you might run into are:
+>
+>  - RStudio shows you a long list of packages and associated version numbers, and asks you: _"Enter one or more numbers separated by spaces, or an empty line to cancel"_. **click in the console window, then only hit Enter. Don't press any other keys**¨. The installation should then continue.
+>
+>  - It says "ERROR: dependency [SOME_PACKAGE_NAME] is not available for package '[ANOTHER_PACKAGE_NAME]'"
+> where [SOME_PACKAGE_NAME] is the name of some package.
+> **in this case, run `install.packages("[SOME_PACKAGE_NAME]")` and try again.**
+
+If it says "* DONE", everything worked ok!
+
+### Loading
+
+Once the package is installed, load it with
+```{r,eval=F}
+library(PACKAGE_NAME)
+```
+example:
+```{r, eval=F}
+library("cleaninginspectoR")
+```
+
+### accessing the documentation
+You can find the main information that you need by running:
+```{r,eval=F}
+browseVignettes("PACKAGE_NAME")
+
+```
+where PACKAGE_NAME should be replaced by the actual name of the package, e.g.:
+```{r,eval=F}
+browseVignettes("cleaninginspectoR")
+```
+
+
+
+
+### Getting Help
+
+#### Prerequisites
+If you don't know how to follow the instructions in this guide, you probably don't have the [required skills](#required-skills).
+
+If you do, and managed to install the package, you will probably get stuck unless you have read the [developer's documentation](#accessing-the-documentation) of the specific tool. 
+
+#### Questions on specific functions
+Once you've checked the two prerequisites above, you might still have questions regarding specific functions. Each function has its own detailed help page, which is usually the first place to go for help. You can access it with:
+
+```{r, eval=F}
+?PACKAGE_NAME::FUNCTION_NAME
+```
+For example:
+```{r,eval=F}
+?cleaninginspectoR::inspect_all
+```
+
+The documentation will show up in the "help" panel of RStudio, usually in the bottom left panel.
+
+#### Dealing with error messages
+Generally there are two types of error messages:
+
+- planned error messages
+- unplanned error messages
+
+Planned error messages were generated on purpose by the tool developer. While they are likely accompanied by a bit of jibberish junk, you should find among it a clear message about what went wrong, why it went wrong and what you need to change. Actually reading the error message and looking for useful hints might give you the solution straight away.
+
+If you can not find anything useful in there, you are probably dealing with an _unplanned_ error message, a problem that the developer of the tool did not anticipate. In that case:
+
+- If the error was thrown by a function in one of the IMPACT tools, you may want to contact the maintainer (see the [list of tools](#available-tools)).
+- If the error was thrown by any other function
+    1. Google for the error message
+    1. Google for the error message together with the name of the package/function
+    1. Ask someone in your team for help
+    1. Ask someone remote for help; In that case you need to follow the best practices on [how to ask questions on code](#asking-questions-best-practices)
+    
+    
+    
+
+#### Asking Questions: best practices
+When asking a question remotely (i.e.: the person helping you can't physically sit down on your computer), you should make it as easy as possible for the other person to help you. This applies both when asking within IMPACT or online (e.g. on StackOverflow).
+
+At the very least, you should provide:
+
+- the code that produced the error
+- the error message
+- what you tried already
+
+Unless the issue is trivial, the person will not be able to help you without running the code themselves and recreating the problem. The best way to help them do that as to produce what is called a [minimal, complete, and verifiable example](https://stackoverflow.com/help/mcve).
+
+
+# Contributing to IMPACT R tools
+
+These tools are a collaborative effort across IMPACT teams. Contributing to and adding IMPACT tools is the greatest honour anyone can achieve in life in general. If you would like to learn how to build R packages or have a specific tool in mind that you would like to build, please contact the data unit who will try to support you as much as possible throughout. While tools can generally be based on any software (R, Python, Excel..), we generally recommend sticking to R, as this is currently most widely used in IMPACT and the Humanitarian system, and currently has the most trainings and resources available within IMPACT.
+
+For contributions to be effective (and to be acceptable in the official toolbox), you will find below the required skills and the requirements in terms of coordination, scope, quality and accessibility standards as well as an explanation of the validation process. 
+
+
+## IMPACT Tool Lifecycle
+
+1. New IMPACT tools usually start with scripts or similar that individuals have built for themselves and/or their direct colleges.
+1. If some minimal documentation / manual for the tool has been added, it can then be informally shared with the wider IMPACT community through the IMPACT [Open Data Processing and Analysis Tools Google Sheet](https://docs.google.com/spreadsheets/d/17W58YnJAmeE3lSNVrIjvQaFwz83pfIiety8LTTTPOdI/edit#gid=809258519).
+    - These tools are then accessible across Impact. They are not guaranteed to work correctly, and not guaranteed to be sufficiently accessible. They do however have some basic documentation to help you get started.
+    - The sheet also includes a page for tool requests
+1. The author would then add more documentation, testing and more to comply with the minimum standards for official IMPACT tools (listed below) 
+1. Tool Validation: If the standards in the next chapter are fulfilled, your tool can be validated, accepted as an official IMPACT tool and included in the official tool list above. You and your management team will of course be credited for their work. Products created with validated tools will be faster to validate, and more likely to be error free, because A) the tool will be carefully reviewed by multiple instances and B) as the tool will be used by more and more people, it becomes more likely that errors are discvoered.
+
+## Open Tool Sharing
+
+To have a place to freely share tools between country teams, there is the [Open Data Processing and Analysis Tools Google Sheet](https://docs.google.com/spreadsheets/d/17W58YnJAmeE3lSNVrIjvQaFwz83pfIiety8LTTTPOdI/edit#gid=809258519). It includes three sheets:
+
+- readme: what information is needed in the other two sheets, and what are the (very low and not checked) standards for tools to be shared openly
+- tools: the list of tools people have shared; anyone is invited to add to this sheet
+- tool requests: the list of tools people would like to have but that do not yet exist
+
+
+##  Coordination
+
+Before starting to build a new tool, coordinate with the GVA Data Unit. Make sure that you..
+
+- Do not replicate functionality already present in other IMPACt tools
+- Do not replicate existing, well established packages
+- Rely on existing code/packages where possible
+- Stick to conventions already used in other tools
+
+
+
+
+## Required Skills
+In order to contribute R Packages, you need to know the content of the [Impact builder certificate training](https://rpubs.com/impact_dataunit/462823). In summary, that is:
+
+- effectively using git and github for version control, collaboration and sharing r packages
+- basics of functional programming (understanding pure functions, cohesion & decoupling etc.)
+- test driven development best practices and implementation in R (packages)
+- Hadley Wickham’s [book on creating R packages](http://r-pkgs.had.co.nz/)
+- If you're using tidyverse stuff, [tidyeval & creating functions around NSE](http://adv-r.haputing-on-the-language.html)
+
+
+
+## Standards
+
+### Scope standards
+Most tools developed across the humanitarian system (and within IMPACT) failed in the past because their functionality was too complex, not reliable enough or not well enough documented.
+
+Therefore packages must have a single, clearly defined functionality.
+
+- No feature bloat: Create first the _absolute minimum functionality necessary for your package to be useful_, and make sure that functionality complies with all standards. Do not overanticipate future features (such as adding function parameters that are not yet in use). Once the minimum functionality is complete with everything, you can expand.
+
+
+Packages can be as simple as a single function doing a single thing (an example of this would be the `mergekobodata` package); complex tasks should be split into independent packages. These may then be combined into higher order packages. They would then have varying levels of complexity/specialisation:
+
+- unspecific: e.g.: calculate median or modes depending on the data type
+- data type specific: e.g. triangulating structured KI information
+- project type specific: e.g. market monitoring analysis
+- project specific: e.g. SYR market monitoring
+
+What is important is that _specific packages should not contain unspecific code._ That means that in the example above, a `SYR market monitoring` package should rely on the `market monitoring analysis` package for _all code that is not specific to SYR alone_. In turn, the `market monitoring analysis` package should rely on `triangulating KI data` for anything not totally specific to market monitoring (and so on).
+
+### Quality Standards
+
+#### Input
+- No package should require input data to have specific columns/variable names .
+
+#### Dependencies
+- The package should not have more external dependencies than absolutely necessary.
+- Do not depend on the `tidyverse` package as a whole (instead, depend on the individual tidyverse packages that you need, e.g. `dplyr`, `purrr` etc.)
+
+#### Software Design
+- All package functions must be pure functions. Exceptions are reading/writing files and creating plots.
+- Package development must be test driven; the package must contain substantial unit tests for all functions.
+
+#### Readability
+- All variable names must be meaningful and self explanatory
+- All code must be either self explanatory or well commented
+
+#### External Documentation
+- All package functions must be thoroughly documented with roxygen2.
+
+#### Data
+- The package should _not_ contain any data. Exceptions are test data for testing and examples. That data should be as small as possible (<1Mb) and provided in raw format in the ./test/ directory. The data must be already validated and in the public domain (on the resource center).
+
+#### Interface
+- User facing functions and function parameters must have meaningful, self explanatory,  _consistent_ and easy-to-guess names.
+- Custom error messages: The package should only throw meaningful custom error messages. Unexpected inputs must be anticipated and the exceptions caught with a meaningful error message.
+- Quiet: Functions should not print to the console (except errors and (rare) warnings or messages)
+- Reasonable default values for parameters: The default values for all functions should be well thought through.
+- No default values where default values are bad: Choices that the user must consider should not be given by default values.
+
+
+###   Accessibility Standards
+- The package must contain Vignettes with
+    - a quick start guide: the minimum information someone needs to use the package in the simplest way
+    - a least one complete working example
+- `?packagename` must give an overview over the complete package functionality.
+- The package must be "strict": It should not allow the user to do something 'wrong'.
+- No unexpected outputs: The package functions should not give unexpected output from unexpected inputs. If the input does not comply with the functionality, a meaningful error should be thrown.
+
+### Accountability and Maintenance
+
+If a package is included in the IMPACT package repository, the creator becomes the package maintainer by default. 
+
+
+
+
+

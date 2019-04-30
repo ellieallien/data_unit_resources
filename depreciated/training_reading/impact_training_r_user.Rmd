@@ -1,0 +1,106 @@
+---
+title: "useR Training"
+author: "Eliora Henzler"
+date: "30 January 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#Introduction
+
+## 1. Preliminary quantitative data analysis guidelines (3 hours)
+
+Read carefully these [Guidelines](https://docs.google.com/document/d/1979hEu6N9d_nIHwkq3AhvLDww1-_eXys808q81WewZ0/edit) - paying specific attention to the minimum standards and the way each data analysis case is set up. 
+
+
+<!-- <span style="color:pink">**Exercise**</span> -->
+<!-- From the last quantitative assessment you worked on, what number of the minimum standards were fulfilled? Please send RCID and filled out minimum standards list to data unit HQ. -->
+
+  
+## 2. Setup (3 hours) 
+### R and Rstudio installation 
+- [Download R](https://cran.r-project.org/bin/windows/base/)
+- [Download R Studio](https://www.rstudio.com/products/rstudio/download/) [download the free - open source licence]
+
+
+<span style="color:pink">**Exercise**</span>  
+Download and install both R _and_ RStudio to your work laptop. (these are two different installations.)
+
+## Getting Started with R and Rstudio
+
+<!-- ### R Overview -->
+<!-- - [Introduction to R and how it works](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf): Chapter 2  -->
+
+## 3. Programming basics (in R) (1 day)
+
+### Variables and data structures
+Content:
+1. RStudio interface
+1. Assigning variables 
+1. Data types: numerics, strings, factors 
+1. Data structures: scalar, vector, matrix, data frame, list
+1. Subsetting
+    <!-- - [Paradis - Beginner R ](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf): Chapter 3.1 -->
+
+- [Intro to R in RStudio](https://www.sitepoint.com/introduction-r-rstudio/)
+- [Datacamp course (4hrs)](https://www.datacamp.com/courses/free-introduction-to-r)
+- [More on Subsetting Data](https://www.statmethods.net/management/subset.html) 
+
+<span style="color:pink">**Exercise**</span>  
+Completing the datacamp course **was** your exercise. Yay !
+
+### Handling data 
+1. importing and exporting data: [Intro to R environment: Chapter 3.3.](http://ncss-tech.github.io/stats_for_soil_survey/chapters/1_introduction/1_introduction.html#33_data_management_in_rstudio) 
+2. inspecting data: [Cheatsheet](https://www.statmethods.net/input/contents.html) 
+
+<span style="color:pink">**Exercise**</span>  
+Follow the expercise in 1.)
+Use R to load your own dataset, check the dimensions of the table, and save as a csv file under a different name. 
+
+<!-- ## 4. Getting ready for tidyverse (2 hours) -->
+<!-- ### dplyr, magrittR and the “pipe” operator   -->
+<!-- - [Training on the pipe operator](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)  -->
+
+<!-- <span style="color:pink">**Exercise**</span> -->
+<!-- Completing the training course **was** your exercise. Yay ! If you would like to know more about the tidyverse, you can do so [here](https://www.tidyverse.org/) -->
+
+## 5. R packages (1/2 day)
+
+dplyr and magrittR are two commonly used _R packages_. All of R has packages as building blocks: simple tools that solve one particular problem. Later in this intro you will learn about the packages developed within IMPACT.
+
+### Installing and loading packages 
+- [Installing and loading packages](http://ncss-tech.github.io/stats_for_soil_survey/chapters/1_introduction/1_introduction.html#35_packages): Chapter 3.5 
+
+- [Reading R help pages and package documentation](https://www.r-project.org/help.html)
+
+<span style="color:pink">**Exercise**</span>  
+<!-- Download the three R packages _hypegrammaR_, _koboquest_ and _validatoR_ from https://github.com/mabafaba   -->
+Install the "ggplot2" package. Inspect it's vignettes. Look at the help page for ggplot2's "qplot" function.
+  
+## 6. Troubleshooting (1/2 day)
+1. How to search for a solution 
+    - Be specific in your vocabulary: include the data type, structure and operation   
+    - Paste the error message into google
+[Stack Overflow - using r-faq](https://csgillespie.github.io/efficientR/learning.html#online-resources)
+1. How to ask for help 
+    - [Isolating issues - debugging](https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio) 
+    - [Producing a Minimal working example](https://stackoverflow.com/help/mcve)
+
+
+<!-- ## 7. Getting started with IMPACT R tools (1/2 day) -->
+
+<!-- <span style="color:pink">**Exercise**</span>  -->
+<!-- Use the downloaded R package _Koboquest: Wrangling with Kobo data_ on an assessment of your choice. -->
+<!-- - Find data types for a variable -->
+<!-- - Get choice and question labels for a variable -->
+<!-- - Check if a question is skipped for the 13^th^ record -->
+
+  
+## 8. Prerequisite test 
+The prerequesite test will rely on the guidelines, as well as chapters 2, 3 and 5. To ensure a smooth training, passing it is required to participate. 
+  
+### Supporting materials: 
+
+[https://cran.r-project.org/doc/manuals/R-intro.pdf](https://cran.r-project.org/doc/manuals/R-intro.pdf)
