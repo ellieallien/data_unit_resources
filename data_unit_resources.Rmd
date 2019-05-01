@@ -2,49 +2,38 @@
 title: "Data Unit Resources"
 author: "Martin Barner"
 date:  "last updated: `r format(Sys.time(), '%d %B, %Y')`"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true  
+ 
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Training Materials
 
-### R User Training
 
-- [R User Training reading list](https://rpubs.com/impact_dataunit/impact_usertraining)
+# IMPACT Global Collaboration
+
+- [IMPACT Open Data Processing and Analysis Tool sharing](https://docs.google.com/spreadsheets/d/17W58YnJAmeE3lSNVrIjvQaFwz83pfIiety8LTTTPOdI/edit#gid=0)
+- [Official tools and R packages - for users and contributors](http://www.rpubs.com/impact_dataunit/impactpackages)
+
+# Training Materials
+
+- [R-User, R-Builder and R-Mentor training reading lists]()
 - [R User Training slides (to be updated)](https://rpubs.com/impact_dataunit/impact_ruser_training_slides)
-
-### R Mentor Training
-
-- [R Mentor training reading list (TBD)]()
-
-### R Builder Training
-
-- [R Tool Builder training reading list](https://rpubs.com/impact_dataunit/training_builders)
-
-## Tool Sharing System
-
-- [Impact R package directory](http://www.rpubs.com/impact_dataunit/impactpackages)
-- [Contributing to impact packages](https://rpubs.com/impact_dataunit/impact_contribue)
-- [IMPACT unofficial Data Processing and Analysis Tools](https://docs.google.com/spreadsheets/d/17W58YnJAmeE3lSNVrIjvQaFwz83pfIiety8LTTTPOdI/edit#gid=0)
+- [R Mentor training slides list (TBD)]()
+- [R Tool Builder training slides](https://rpubs.com/impact_dataunit/training_builders)
 
 
-## Community
 
-- [Brainstorming Problems and Solutions session outcomes](https://docs.google.com/document/d/1QUxTSjsgE6vbd4Ge56jsrzIhZZCe0GT-lg1Bo0wFdq0/edit)
-- [Training RCM Amman feedback](https://docs.google.com/forms/d/e/1FAIpQLSePFQvy8YHWms5_jIv6TzW28fj_Nl_B7bjGifMtmFNZFXbWIw/viewform?usp=send_form)
-
-
-## Guidelines
+# Guidelines
 
 - [Preliminary qualitative analysis guidelines](https://docs.google.com/document/d/1979hEu6N9d_nIHwkq3AhvLDww1-_eXys808q81WewZ0)
 
-## Other
+# Other
 
 - [Technical capacity self assessment form ](https://docs.google.com/forms/d/1R6EQq6vQx4NCHkbqhZPuXIeTldpMKydkVPUKWMr2G7M/edit#responses)
-
-
-
-<!-- ./visitor/data_unit_resources.Rmd -->
