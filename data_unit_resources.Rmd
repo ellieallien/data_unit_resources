@@ -28,8 +28,6 @@ knitr::opts_chunk$set(echo = TRUE)
 - [R Mentor training slides list (TBD)]()
 - [R Tool Builder training slides](https://rpubs.com/impact_dataunit/training_builders)
 
-
-
 # Guidelines
 
 - [Preliminary qualitative analysis guidelines](https://docs.google.com/document/d/1979hEu6N9d_nIHwkq3AhvLDww1-_eXys808q81WewZ0)
